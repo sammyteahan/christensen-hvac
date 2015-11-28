@@ -1,6 +1,6 @@
-/*===========================================================================*\
+/*---------------------------------------------------------------------------*\
                                     ¡LAYOUT
-\*===========================================================================*/
+\*---------------------------------------------------------------------------*/
 
 * {
     -webkit-box-sizing: border-box;
@@ -104,9 +104,28 @@ footer {
 /*------------------------------------*\
                ¡SUBMAST
 \*------------------------------------*/
-
+/**
+* Getting pretty wild here,
+* .sub-mast-info is a flex-item
+* of .sub-mast, however, it is
+* also a flex container itself
+*/
 .sub-mast {
-
+  @include flexbox();
+  background: url(../assets/img/bg-mast.png) no-repeat 0 100%;
+  background-size: cover;
+  height: calc(100vh - 100px);
+  &-info {
+    @include flexbox();
+    @include align-self(flex-end);
+    @include justify-content(center);
+    background: color(accent-4);
+    height: config(header);
+    width: 100%;
+    .info {
+      @include align-self(center);
+    }
+  }
 }
 
 
