@@ -1,0 +1,83 @@
+/*===========================================================================*\
+                                    ¡FUNCTIONS
+\*===========================================================================*/
+$configs: (
+  header: 100px,
+  footer: 240px
+);
+
+/**
+* Colors: accent == blue, main === gray && highlight === red
+*/
+/// Map of colors used as a theme for this site
+/// @name colors
+/// @type map
+$colors: (
+  main: #ffffff,        /* WHITE */
+  accent-4: #2b2b2b,    /* DARK GRAY */
+  default-font: #525252, /* DARK GRAY FONT */
+  highlight-3: #a91b1b,  /* BRIGHTER RED FONT (LOGO COLOR) */
+  highlight-4: #b91e1e,  /* BRIGHT RED FONT */
+  // background-light: #E6E7E8, /* OFFWHITE COLOR USED FOR BACKGROUND */
+  // default-font: #333D47,     /* DARK GRAY FONT COLOR */
+  // accent-4: #222C65,         /* MAIN BLUE */
+  // accent-8: #222C65,         /* BLUE WITH TEN PERCENT DARKENING */
+);
+
+$breakpoints: (
+  phone:      450px,
+  phone-lg:   650px,
+  tablet:     767px,
+  tablet-lg:  992px,
+  desktop:    1024px,
+  desktop-xl: 1400px
+);
+
+/*------------------------------------*\
+           Helper functions
+\*------------------------------------*/
+/**
+* so we don't always have to 
+* type 'map-get'
+*/
+/* background: color(color-100); */
+@function config($key) {
+  @if map-has-key($configs, $key) {
+    @return map-get($configs, $key);
+  }
+  @warn "Unknown #{$key} in configs map";
+  @return null;
+}
+
+/// Grab a color from the colors map
+/// @name color
+/// @param {str} $key - name of the key in the colors map
+/// @throw color {key} not found in colors map
+/// @return {str} the value of the colors map associated with given key
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+  @warn "Unknown #{$key} in colors map";
+  @return null;
+}
+
+/* breakpoint(phone); */
+@function breakpoint($key) {
+  @if map-has-key($breakpoints, $key) {
+    @return map-get($breakpoints, $key);
+  }
+  @warn "Unknown #{$key} in breakpoints map";
+  @return null;
+}
+
+/*------------------------------------*\
+          ¡SPACING AND ¡SIZES 
+\*------------------------------------*/
+
+$base-spacing-unit:  20px;
+$half-spacing-unit:  ($base-spacing-unit / 2);
+$squeeze-width:      720px;
+$header-squeeze:     980px;
+$default-font-size:  16px;
+

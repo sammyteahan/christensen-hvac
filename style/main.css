@@ -1,0 +1,431 @@
+@charset "UTF-8";
+/*===========================================================================*\
+                                    ¡FUNCTIONS
+\*===========================================================================*/
+/**
+* Colors: accent == blue, main === gray && highlight === red
+*/
+/*------------------------------------*\
+           Helper functions
+\*------------------------------------*/
+/**
+* so we don't always have to 
+* type 'map-get'
+*/
+/* background: color(color-100); */
+/* breakpoint(phone); */
+/*------------------------------------*\
+          ¡SPACING AND ¡SIZES 
+\*------------------------------------*/
+/********************
+¡MIXINS
+********************/
+/**
+*
+* GRADIENTS
+*
+**/
+/********************
+¡CLASSES
+********************/
+.lk-clear:after, .lk-squeeze:after, .col-wrap:after {
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both; }
+
+.lk-squeeze {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  height: 100%;
+  max-width: 720px; }
+  @media screen and (max-width: 650px) {
+    .lk-squeeze {
+      padding: 0 10px; } }
+
+.show-mobile-inline,
+.show-mobile-block {
+  display: none !important; }
+
+@media screen and (max-width: 767px) {
+  .show-mobile-inline {
+    display: inline-block; } }
+
+@media screen and (max-width: 767px) {
+  .show-mobile-block {
+    display: block !important; } }
+
+@media screen and (max-width: 650px) {
+  .hide-mobile {
+    display: none; } }
+
+/**
+ * Add/remove margins
+ */
+.push {
+  margin: 20px !important; }
+
+.push--top {
+  margin-top: 20px !important; }
+
+.push--right {
+  margin-right: 20px !important; }
+
+.push--bottom {
+  margin-bottom: 20px !important; }
+
+.push--left {
+  margin-left: 20px !important; }
+
+.push--ends {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important; }
+
+.push--sides {
+  margin-right: 20px !important;
+  margin-left: 20px !important; }
+
+.push-half {
+  margin: 10px !important; }
+
+.push-half--top {
+  margin-top: 10px !important; }
+
+.push-half--right {
+  margin-right: 10px !important; }
+
+.push-half--bottom {
+  margin-bottom: 10px !important; }
+
+.push-half--left {
+  margin-left: 10px !important; }
+
+.push-half--ends {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important; }
+
+.push-half--sides {
+  margin-right: 10px !important;
+  margin-left: 10px !important; }
+
+.flush {
+  margin: 0 !important; }
+
+.flush--top {
+  margin-top: 0 !important; }
+
+.flush--right {
+  margin-right: 0 !important; }
+
+.flush--bottom {
+  margin-bottom: 0 !important; }
+
+.flush--left {
+  margin-left: 0 !important; }
+
+.flush--ends {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
+
+.flush--sides {
+  margin-right: 0 !important;
+  margin-left: 0 !important; }
+
+/**
+ * Add/remove paddings
+ */
+.pad {
+  padding: 20px !important; }
+
+.pad--top {
+  padding-top: 20px !important; }
+
+.pad--right {
+  padding-right: 20px !important; }
+
+.pad--bottom {
+  padding-bottom: 20px !important; }
+
+.pad--left {
+  padding-left: 20px !important; }
+
+.pad--ends {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important; }
+
+.pad--sides {
+  padding-right: 20px !important;
+  padding-left: 20px !important; }
+
+.pad-half {
+  padding: 10px !important; }
+
+.pad-half--top {
+  padding-top: 10px !important; }
+
+.pad-half--right {
+  padding-right: 10px !important; }
+
+.pad-half--bottom {
+  padding-bottom: 10px !important; }
+
+.pad-half--left {
+  padding-left: 10px !important; }
+
+.pad-half--ends {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important; }
+
+.pad-half--sides {
+  padding-right: 10px !important;
+  padding-left: 10px !important; }
+
+/**
+* Floats  
+*/
+.none {
+  float: none !important; }
+
+.pull--right {
+  float: right !important; }
+
+.pull--left {
+  float: left !important; }
+
+.clear {
+  display: block;
+  float: none;
+  clear: both; }
+
+/**
+* Centering elements
+*/
+.center--vertical {
+  vertical-align: middle; }
+
+.center--horizontal {
+  margin: 0 auto;
+  display: block; }
+
+.text--center {
+  text-align: center !important; }
+
+.text--left {
+  text-align: left !important; }
+
+.text--right {
+  text-align: right !important; }
+
+/**
+ * COLUMNS
+ */
+.col-wrap .col {
+  float: left; }
+  .col-wrap .col.col-50 {
+    width: 50%; }
+    @media screen and (max-width: 767px) {
+      .col-wrap .col.col-50 {
+        width: 100%;
+        float: none; } }
+.col-wrap .col-50:nth-last-child(2):first-child {
+  padding-right: 10px; }
+  @media screen and (max-width: 767px) {
+    .col-wrap .col-50:nth-last-child(2):first-child {
+      padding-right: 0; } }
+.col-wrap .col-50 + .col-50 {
+  padding-left: 10px; }
+  @media screen and (max-width: 767px) {
+    .col-wrap .col-50 + .col-50 {
+      padding-left: 0; } }
+
+/**
+* High level color classes for fonts. There are essentially
+* only four colors on this site regarding typography. I've 
+* given these !important because I want to apply a default 
+* color to all h and p elements and still be able to add
+* classes to any element.
+*/
+.black {
+  color: #000 !important; }
+
+.white {
+  color: #fff !important; }
+
+.accent {
+  color: #2b2b2b; }
+
+.accent-red {
+  color: #b91e1e; }
+
+.bold {
+  font-weight: bold !important; }
+
+h1, h2,
+h3, h4,
+h5, h6 {
+  color: #525252;
+  font-weight: 300; }
+
+h1 {
+  font-size: 50px; }
+
+h2 {
+  font-size: 40px; }
+
+h3 {
+  font-size: 35px; }
+
+h4 {
+  font-size: 30px; }
+
+h5 {
+  font-size: 25px; }
+
+h6 {
+  font-size: 18px; }
+
+p {
+  color: #525252;
+  font-size: 16px; }
+  p.medium {
+    font-size: 14px; }
+  p.small {
+    font-size: 12px; }
+
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 44px !important; }
+
+  h2 {
+    font-size: 34px !important; }
+
+  h5 {
+    font-size: 22px !important; }
+
+  h6 {
+    font-size: 18px !important; } }
+@media screen and (max-width: 450px) {
+  h1 {
+    font-size: 40px !important; }
+
+  h2 {
+    font-size: 30px !important; }
+
+  h5 {
+    font-size: 22px !important; }
+
+  h6 {
+    font-size: 18px !important; } }
+/*===========================================================================*\
+                                    ¡LAYOUT
+\*===========================================================================*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  background: #ffffff;
+  font-family: sans-serif;
+  height: 100%;
+  -webkit-font-smoothing: antialiased; }
+
+/**
+* @desc sticky !footer
+*/
+.site {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh; }
+
+.content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+
+footer {
+  background: #2b2b2b;
+  height: 100px; }
+
+/*-----------------------------------*\
+               !HEADER
+\*-----------------------------------*/
+.header {
+  background: #2b2b2b;
+  height: 100px;
+  line-height: 100px; }
+  .header-squeeze {
+    max-width: 980px;
+    margin: 0 auto; }
+  .header-logo {
+    float: left;
+    margin: 20px 15px 0 0;
+    width: 75px; }
+  .header .title {
+    color: #ffffff;
+    float: left;
+    line-height: 20px;
+    margin-top: 30px; }
+  .header ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    justify-content: flex-end;
+    list-style: none; }
+    .header ul a {
+      color: #fff;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      @inlcude align-items(flex-start);
+      padding: 0 15px;
+      text-decoration: none; }
+    .header ul li {
+      font-size: 18px; }
+    .header ul li:hover,
+    .header ul li:active {
+      background: #383838; }
+
+/*------------------------------------*\
+               ¡MENU ¡NAV
+\*------------------------------------*/
+/*------------------------------------*\
+               ¡SUBMAST
+\*------------------------------------*/
+/*------------------------------------*\
+              ¡SECTIONS
+\*------------------------------------*/
+/*------------------------------------*\
+                ¡FOOTER
+\*------------------------------------*/
+
+/*# sourceMappingURL=main.css.map */

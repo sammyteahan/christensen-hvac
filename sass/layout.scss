@@ -1,0 +1,126 @@
+/*===========================================================================*\
+                                    ¡LAYOUT
+\*===========================================================================*/
+
+* {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background: color(main);
+  font-family: sans-serif;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/**
+* @desc sticky !footer
+*/
+.site {
+  @include flexbox();
+  @include flex-direction(column);
+  min-height: 100vh;
+}
+
+.content {
+  @include flex(1);
+}
+
+footer {
+  background: color(accent-4);
+  height: 100px;
+}
+
+
+
+
+
+/*-----------------------------------*\
+               !HEADER
+\*-----------------------------------*/
+
+.header {
+  background: color(accent-4);
+  height: config(header);
+  line-height: config(header);
+  &-squeeze {
+    max-width: $header-squeeze;
+    margin: 0 auto;
+  }
+  &-logo {
+    float: left;
+    margin: 20px 15px 0 0;
+    width: 75px;
+  }
+  .title {
+    color: #ffffff;
+    float: left;
+    line-height: 20px;
+    margin-top: 30px;
+  }
+  ul {
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include justify-content(flex-end);
+    list-style: none;
+    a {
+      color: #fff;
+      @include flexbox();
+      @inlcude align-items(flex-start);
+      padding: 0 15px;
+      text-decoration: none;
+    }
+    li {
+      font-size: 18px;
+    }
+    li:hover,
+    li:active {
+      background: lighten(color(accent-4), 5%);
+    }
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+               ¡MENU ¡NAV
+\*------------------------------------*/
+
+.wrap-menu {
+
+}
+
+
+
+
+
+/*------------------------------------*\
+               ¡SUBMAST
+\*------------------------------------*/
+
+.sub-mast {
+
+}
+
+
+
+
+
+/*------------------------------------*\
+              ¡SECTIONS
+\*------------------------------------*/
+
+
+
+
+
+/*------------------------------------*\
+                ¡FOOTER
+\*------------------------------------*/

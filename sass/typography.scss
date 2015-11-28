@@ -1,0 +1,96 @@
+////
+/// High level color classes for fonts. There are essentially
+/// only four colors on this site regarding typography. I've 
+/// given these !important because I want to apply a default 
+/// color to all h and p elements and still be able to add
+/// classes to any element.
+/// @author sammyteahan
+////
+
+
+/**
+* High level color classes for fonts. There are essentially
+* only four colors on this site regarding typography. I've 
+* given these !important because I want to apply a default 
+* color to all h and p elements and still be able to add
+* classes to any element.
+*/
+
+.black {
+  color: #000 !important;
+}
+.white {
+  color: #fff !important;
+}
+.accent {
+  color: color(accent-4);
+}
+.accent-red {
+  color: color(highlight-4);
+}
+.bold {
+  font-weight: bold !important;
+}
+
+h1, h2, 
+h3, h4, 
+h5, h6 {
+  color: color(default-font);
+  font-weight: 300;
+}
+
+h1 { font-size: 50px; }
+h2 { font-size: 40px; }
+h3 { font-size: 35px; }
+h4 { font-size: 30px; }
+h5 { font-size: 25px; }
+h6 { font-size: 18px; }
+
+
+p {
+  color: color(default-font);
+  font-size: $default-font-size;
+  &.medium {
+    font-size: 14px;
+  }
+  &.small {
+    font-size: 12px;
+  }
+}
+
+// ul {
+//   padding: 0 20px;
+//   li {
+//     color: color(default-font);
+//   }
+// }
+
+@media screen and (max-width: breakpoint(tablet)) {
+  h1 {
+    font-size: 44px !important;
+  }
+  h2 {
+    font-size: 34px !important;
+  }
+  h5 {
+    font-size: 22px !important;
+  }
+  h6 {
+    font-size: 18px !important;
+  }
+}
+
+@media screen and (max-width: breakpoint(phone)) {
+  h1 {
+    font-size: 40px !important;
+  }
+  h2 {
+    font-size: 30px !important;
+  }
+  h5 {
+    font-size: 22px !important;
+  }
+  h6 {
+    font-size: 18px !important;
+  }
+}
