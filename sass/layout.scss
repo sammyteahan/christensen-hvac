@@ -2,6 +2,26 @@
                                     ¡LAYOUT
 \*---------------------------------------------------------------------------*/
 
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url('../assets/fonts/Lato-Bold.ttf');
+  src: local(☺), url('../assets/fonts/Lato-Bold.ttf') 
+    format('otf'), url('../assets/fonts/Lato-Bold.ttf') 
+    format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url('../assets/fonts/OpenSans-Bold-webfont.ttf');
+  src: local(☺), url('../assets/fonts/OpenSans-Bold-webfont.ttf') 
+    format('ttf'), url('../assets/fonts/OpenSans-Bold-webfont.ttf') 
+    format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
@@ -13,7 +33,7 @@
 
 body {
   background: color(main);
-  font-family: sans-serif;
+  font-family: 'Lato-Bold', sans-serif;
   height: 100%;
   -webkit-font-smoothing: antialiased;
 }
@@ -54,7 +74,7 @@ footer {
   }
   &-logo {
     float: left;
-    margin: 20px 15px 0 0;
+    margin: 20px 15px 0 10px;
     width: 75px;
   }
   .title {
@@ -62,6 +82,9 @@ footer {
     float: left;
     line-height: 20px;
     margin-top: 30px;
+  }
+  .menu-icon-wrapper {
+    display: none;
   }
   ul {
     @include flexbox();
@@ -72,15 +95,28 @@ footer {
       color: #fff;
       @include flexbox();
       @inlcude align-items(flex-start);
-      padding: 0 15px;
+      padding: 0 20px;
       text-decoration: none;
     }
     li {
-      font-size: 18px;
     }
     li:hover,
     li:active {
-      background: lighten(color(accent-4), 5%);
+      background: url(../assets/img/divider.png) no-repeat 0 50%;
+      background-size: 12px;
+      // background-color: lighten(color(accent-4), 5%);
+    }
+  }
+  @media screen and (max-width: breakpoint(tablet-lg)) {
+    .menu-icon-wrapper {
+      display: block;
+      line-height: 0;
+      position: absolute;
+      right: 25px;
+      top: 45px;
+    }
+    .menu-icon-wrapper:hover {
+      cursor: pointer;
     }
   }
 }
@@ -94,7 +130,46 @@ footer {
 \*------------------------------------*/
 
 .wrap-menu {
+  @media screen and (max-width: breakpoint(tablet-lg)) {
+    display: none;
+  }
+}
 
+.wrap-mobile-menu {
+  display: none;
+  @media screen and (max-width: breakpoint(tablet-lg)) {
+    ul {
+      padding: 0;
+      text-align: center;
+      li {
+        background: lighten(color(accent-4), 2%);
+        border-bottom: 1px solid lighten(color(highlight-4), 5%);
+        display: block;
+        font-size: 18px;
+        list-style: none;
+      }
+      li:first-child {
+        border-top: 1px solid lighten(color(highlight-4), 5%);
+      }
+      li:hover,
+      li:active {
+        background: lighten(color(accent-4), 5%);
+      }
+      a {
+        color: #ffffff;
+        display: block;
+        padding: 5px 0;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.wrap-mobile-menu.is-active {
+  display: block;
 }
 
 
@@ -109,12 +184,18 @@ footer {
 * .sub-mast-info is a flex-item
 * of .sub-mast, however, it is
 * also a flex container itself
+*
+* Also, because default for a 
+* flex item is stretch, we need
+* give the images a height and 
+* width or they look aaawwfull!
 */
 .sub-mast {
   @include flexbox();
   background: url(../assets/img/bg-mast.png) no-repeat 0 100%;
   background-size: cover;
   height: calc(100vh - 100px);
+  margin-bottom: 60px;
   &-info {
     @include flexbox();
     @include align-self(flex-end);
@@ -124,6 +205,12 @@ footer {
     width: 100%;
     .info {
       @include align-self(center);
+    }
+    img {
+      margin: 0 20px;
+      height: 10px;
+      width: 10px;
+      align-self: center;
     }
   }
 }
@@ -136,6 +223,63 @@ footer {
               ¡SECTIONS
 \*------------------------------------*/
 
+.section {
+  padding: 40px 0;
+  &-title {
+    line-height: 32px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    span {
+      font-size: 16px;
+    }
+  }
+  &-divider {
+    background: url(../assets/img/divider.png) no-repeat center;
+    background-size: 15px;
+    height: 20px;
+  }
+  .info {
+    line-height: 35px;
+  }
+}
+
+.commitment {
+  margin-bottom: 50px;
+}
+
+.services {
+  // @include flexbox();
+  // @include flex-wrap(wrap);
+  // @include justify-content(center);
+  // @include align-items(center);
+  background: url(../assets/img/bg-services.png) no-repeat center;
+  background-size: cover;
+  height: 800px;
+  .box-container {
+    margin-top: 150px;
+    font-size: 0;
+    .box {
+      background: rgba(98, 98, 98, .5);
+      display: inline-block;
+      height: 175px;
+      margin: 5px 3px;
+      position: relative;
+      vertical-align: top;
+      width: 175px;
+      p {
+        color: #ffffff;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 85%;
+      }
+    }
+    .box:hover {
+      background: rgba(73, 44, 44, .7);
+    }
+  }
+}
 
 
 

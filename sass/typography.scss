@@ -32,6 +32,38 @@
   font-weight: bold !important;
 }
 
+/**
+* @desc this class display lines on 
+* both sides of a section title for
+* additional text decoration. prolly
+* a better way of doing this via 
+* background images.
+*/
+.strikethrough {
+  position: relative;
+  span {
+    background: #fff;
+    font-size: 25px !important;
+    padding: 0 15px;
+    position: relative;
+    z-index: 812;
+  }
+  &:before {
+    content: '';
+    background: color(highlight-4);
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+  @media screen and (max-width: breakpoint(tablet)) {
+    &:before {
+      display: none;
+    }
+  }
+}
+
 h1, h2, 
 h3, h4, 
 h5, h6 {
@@ -64,6 +96,14 @@ p {
 //     color: color(default-font);
 //   }
 // }
+
+a {
+  text-decoration: none;
+  &.spacing {
+    letter-spacing: 2px;
+    margin: 0 5px;
+  }
+}
 
 @media screen and (max-width: breakpoint(tablet)) {
   h1 {

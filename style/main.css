@@ -40,7 +40,7 @@
   padding: 0 20px;
   width: 100%;
   height: 100%;
-  max-width: 720px; }
+  max-width: 815px; }
   @media screen and (max-width: 650px) {
     .lk-squeeze {
       padding: 0 10px; } }
@@ -262,6 +262,33 @@
 .bold {
   font-weight: bold !important; }
 
+/**
+* @desc this class display lines on 
+* both sides of a section title for
+* additional text decoration. prolly
+* a better way of doing this via 
+* background images.
+*/
+.strikethrough {
+  position: relative; }
+  .strikethrough span {
+    background: #fff;
+    font-size: 25px !important;
+    padding: 0 15px;
+    position: relative;
+    z-index: 812; }
+  .strikethrough:before {
+    content: '';
+    background: #b91e1e;
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    width: 100%; }
+  @media screen and (max-width: 767px) {
+    .strikethrough:before {
+      display: none; } }
+
 h1, h2,
 h3, h4,
 h5, h6 {
@@ -294,6 +321,12 @@ p {
   p.small {
     font-size: 12px; }
 
+a {
+  text-decoration: none; }
+  a.spacing {
+    letter-spacing: 2px;
+    margin: 0 5px; }
+
 @media screen and (max-width: 767px) {
   h1 {
     font-size: 44px !important; }
@@ -321,6 +354,18 @@ p {
 /*---------------------------------------------------------------------------*\
                                     ¡LAYOUT
 \*---------------------------------------------------------------------------*/
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url("../assets/fonts/Lato-Bold.ttf");
+  src: local(☺), url("../assets/fonts/Lato-Bold.ttf") format("otf"), url("../assets/fonts/Lato-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url("../assets/fonts/OpenSans-Bold-webfont.ttf");
+  src: local(☺), url("../assets/fonts/OpenSans-Bold-webfont.ttf") format("ttf"), url("../assets/fonts/OpenSans-Bold-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -331,7 +376,7 @@ p {
 
 body {
   background: #ffffff;
-  font-family: sans-serif;
+  font-family: 'Lato-Bold', sans-serif;
   height: 100%;
   -webkit-font-smoothing: antialiased; }
 
@@ -376,13 +421,15 @@ footer {
     margin: 0 auto; }
   .header-logo {
     float: left;
-    margin: 20px 15px 0 0;
+    margin: 20px 15px 0 10px;
     width: 75px; }
   .header .title {
     color: #ffffff;
     float: left;
     line-height: 20px;
     margin-top: 30px; }
+  .header .menu-icon-wrapper {
+    display: none; }
   .header ul {
     display: -webkit-box;
     display: -webkit-flex;
@@ -407,17 +454,57 @@ footer {
       display: -ms-flexbox;
       display: flex;
       @inlcude align-items(flex-start);
-      padding: 0 15px;
+      padding: 0 20px;
       text-decoration: none; }
-    .header ul li {
-      font-size: 18px; }
     .header ul li:hover,
     .header ul li:active {
-      background: #383838; }
+      background: url(../assets/img/divider.png) no-repeat 0 50%;
+      background-size: 12px; }
+  @media screen and (max-width: 992px) {
+    .header .menu-icon-wrapper {
+      display: block;
+      line-height: 0;
+      position: absolute;
+      right: 25px;
+      top: 45px; }
+    .header .menu-icon-wrapper:hover {
+      cursor: pointer; } }
 
 /*------------------------------------*\
                ¡MENU ¡NAV
 \*------------------------------------*/
+@media screen and (max-width: 992px) {
+  .wrap-menu {
+    display: none; } }
+
+.wrap-mobile-menu {
+  display: none; }
+  @media screen and (max-width: 992px) {
+    .wrap-mobile-menu ul {
+      padding: 0;
+      text-align: center; }
+      .wrap-mobile-menu ul li {
+        background: #303030;
+        border-bottom: 1px solid #cf2222;
+        display: block;
+        font-size: 18px;
+        list-style: none; }
+      .wrap-mobile-menu ul li:first-child {
+        border-top: 1px solid #cf2222; }
+      .wrap-mobile-menu ul li:hover,
+      .wrap-mobile-menu ul li:active {
+        background: #383838; }
+      .wrap-mobile-menu ul a {
+        color: #ffffff;
+        display: block;
+        padding: 5px 0;
+        text-decoration: none; }
+      .wrap-mobile-menu ul a:hover {
+        color: #fff; } }
+
+.wrap-mobile-menu.is-active {
+  display: block; }
+
 /*------------------------------------*\
                ¡SUBMAST
 \*------------------------------------*/
@@ -426,6 +513,11 @@ footer {
 * .sub-mast-info is a flex-item
 * of .sub-mast, however, it is
 * also a flex container itself
+*
+* Also, because default for a 
+* flex item is stretch, we need
+* give the images a height and 
+* width or they look aaawwfull!
 */
 .sub-mast {
   display: -webkit-box;
@@ -435,7 +527,8 @@ footer {
   display: flex;
   background: url(../assets/img/bg-mast.png) no-repeat 0 100%;
   background-size: cover;
-  height: calc(100vh - 100px); }
+  height: calc(100vh - 100px);
+  margin-bottom: 60px; }
   .sub-mast-info {
     display: -webkit-box;
     display: -webkit-flex;
@@ -459,10 +552,58 @@ footer {
       -moz-align-self: center;
       -ms-flex-item-align: center;
       align-self: center; }
+    .sub-mast-info img {
+      margin: 0 20px;
+      height: 10px;
+      width: 10px;
+      align-self: center; }
 
 /*------------------------------------*\
               ¡SECTIONS
 \*------------------------------------*/
+.section {
+  padding: 40px 0; }
+  .section-title {
+    line-height: 32px;
+    letter-spacing: 2px;
+    margin-bottom: 10px; }
+    .section-title span {
+      font-size: 16px; }
+  .section-divider {
+    background: url(../assets/img/divider.png) no-repeat center;
+    background-size: 15px;
+    height: 20px; }
+  .section .info {
+    line-height: 35px; }
+
+.commitment {
+  margin-bottom: 50px; }
+
+.services {
+  background: url(../assets/img/bg-services.png) no-repeat center;
+  background-size: cover;
+  height: 800px; }
+  .services .box-container {
+    margin-top: 150px;
+    font-size: 0; }
+    .services .box-container .box {
+      background: rgba(98, 98, 98, 0.5);
+      display: inline-block;
+      height: 175px;
+      margin: 5px 3px;
+      position: relative;
+      vertical-align: top;
+      width: 175px; }
+      .services .box-container .box p {
+        color: #ffffff;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 85%; }
+    .services .box-container .box:hover {
+      background: rgba(73, 44, 44, 0.7); }
+
 /*------------------------------------*\
                 ¡FOOTER
 \*------------------------------------*/

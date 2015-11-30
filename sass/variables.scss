@@ -18,6 +18,7 @@ $colors: (
   default-font: #525252, /* DARK GRAY FONT */
   highlight-3: #a91b1b,  /* BRIGHTER RED FONT (LOGO COLOR) */
   highlight-4: #b91e1e,  /* BRIGHT RED FONT */
+  highlight-6: #4c2f2f,  /* DARK MAROON RED FOR ROLLOVER ITEMS */
   // background-light: #E6E7E8, /* OFFWHITE COLOR USED FOR BACKGROUND */
   // default-font: #333D47,     /* DARK GRAY FONT COLOR */
   // accent-4: #222C65,         /* MAIN BLUE */
@@ -77,7 +78,7 @@ $breakpoints: (
 
 $base-spacing-unit:  20px;
 $half-spacing-unit:  ($base-spacing-unit / 2);
-$squeeze-width:      720px;
+$squeeze-width:      815px;
 $header-squeeze:     980px;
 $default-font-size:  16px;
 $header-height:      100px;
