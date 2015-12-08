@@ -1,30 +1,64 @@
 (function() {
 
   /**
-  * Initialize smooth scroll
+  * scroll to top
   */
-  smoothScroll.init({
-    speed: 1000,
-    easing: 'easeInOutCubic',
-    updateURL: false,
-    offset: 0
+  $('.scroll').click(function(e){
+    $('html, body').animate({
+      scrollTop: $('#top').offset().top
+    }, 1000);
   });
 
-  var icon = document.querySelector('.menu-icon-wrapper');
-  var menu = document.querySelector('.wrap-mobile-menu');
-  var menuList = document.querySelector('.wrap-mobile-menu > ul');
-
-  var toggleClass = function() {
-    if(!menu.clientHeight) {
-      menu.style.height = 166 + 'px';
-      menuList.style.marginTop = 0;
+  $('.menu-icon').click(function (e) {
+    e.preventDefault();
+    if($('.wrap-mobile-menu').is(':animated')) {
+      return;
     } else {
-      menu.style.height = 0;
+      $('.wrap-mobile-menu').slideToggle('slow');
     }
-    // menu.classList.toggle('is-active');
-  }
+  });
 
-  icon.addEventListener('click', toggleClass);
 
-  console.log('-- js loaded --');
+  /**
+  * smooth scroll (from menu)
+  */
+  $('.wrap-menu a').click(function (e) {
+    e.preventDefault();
+    var menuHeight = 166;
+    var target = $(this).attr('href');
+    $('html body').animate({
+      scrollTop: ($(target).offset().top)
+    }, 1500);
+  });
+
+  $('.mobile-menu a').click(function (e) {
+    e.preventDefault();
+    var menuHeight = 166;
+    var target = $(this).attr('href');
+    $('html, body').animate({
+      scrollTop: ($(target).offset().top - menuHeight)
+    }, 1500);
+    $('.wrap-mobile-menu').slideToggle('slow');
+  });
+
+  /**
+  * smooth scroll from page links
+  */
+  $('.learn').click(function (e) {
+    e.preventDefault();
+    var target = $(this).attr('href');
+    $('html body').animate({
+      scrollTop: ($(target).offset().top)
+    }, 1000);
+  });
+
+  $('.contact-us').click(function (e) {
+    e.preventDefault();
+    var target = $(this).attr('href');
+    $('html body').animate({
+      scrollTop: ($(target).offset().top)
+    }, 1000);
+  });
+
+  console.info('-- scripts loaded --');
 }());

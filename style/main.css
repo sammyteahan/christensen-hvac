@@ -111,7 +111,7 @@
   margin-left: 10px !important; }
 
 .push-x--top {
-  margin-top: 80px !important; }
+  margin-top: 80px; }
 
 .flush {
   margin: 0 !important; }
@@ -291,6 +291,10 @@
   @media screen and (max-width: 767px) {
     .strikethrough:before {
       display: none; } }
+  @media screen and (max-width: 650px) {
+    .strikethrough span {
+      font-size: 18px !important;
+      padding: 0; } }
 
 h1, h2,
 h3, h4,
@@ -382,6 +386,21 @@ body {
   font-family: 'Lato-Bold', sans-serif;
   height: 100%;
   -webkit-font-smoothing: antialiased; }
+
+.scroll {
+  color: #e3a5a5;
+  cursor: pointer;
+  position: fixed;
+  right: 8%;
+  width: 45px;
+  z-index: 812;
+  top: 175px; }
+  .scroll span {
+    font-size: 12px;
+    line-height: 12px; }
+  @media screen and (max-width: 992px) {
+    .scroll {
+      display: none; } }
 
 /**
 * @desc sticky !footer
@@ -481,11 +500,9 @@ footer {
     display: none; } }
 
 .wrap-mobile-menu {
-  height: 0;
-  transition: 1s all; }
+  display: none; }
   @media screen and (max-width: 992px) {
     .wrap-mobile-menu ul {
-      margin-top: -266px;
       padding: 0;
       text-align: center; }
       .wrap-mobile-menu ul li {
@@ -507,6 +524,9 @@ footer {
       .wrap-mobile-menu ul a:hover {
         color: #fff; } }
 
+.wrap-mobile-menu.is-active {
+  display: block; }
+
 /*------------------------------------*\
                ¡SUBMAST
 \*------------------------------------*/
@@ -527,10 +547,12 @@ footer {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  background: url(../assets/img/bg-mast.png) no-repeat scroll center bottom;
+  background: url(../assets/img/bg-mast.png) no-repeat scroll center -100px;
   background-size: cover;
   height: calc(100vh - 100px);
-  margin-bottom: 60px; }
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 5150; }
   .sub-mast-info {
     display: -webkit-box;
     display: -webkit-flex;
@@ -559,6 +581,10 @@ footer {
       height: 10px;
       width: 10px;
       align-self: center; }
+  @media screen and (max-width: 767px) {
+    .sub-mast {
+      height: calc(100vh - 150px);
+      margin-bottom: 0; } }
 
 /*------------------------------------*\
               ¡SECTIONS
@@ -572,11 +598,21 @@ footer {
     .section-title span {
       font-size: 16px; }
   .section-divider {
-    background: url(../assets/img/divider.png) no-repeat center;
+    background: url(../assets/img/divider@2x.png) no-repeat center;
     background-size: 15px;
     height: 20px; }
   .section .info {
     line-height: 35px; }
+  @media screen and (max-width: 767px) {
+    .section {
+      padding: 20px 0; }
+      .section .info {
+        line-height: 30px; } }
+  @media screen and (max-width: 650px) {
+    .section {
+      padding: 15px 0; }
+      .section .info {
+        line-height: 28px; } }
 
 .commitment {
   margin-bottom: 50px; }
@@ -608,6 +644,13 @@ footer {
     @media screen and (max-width: 767px) {
       .services .box-container {
         margin: 30px 0; } }
+    @media screen and (max-width: 650px) {
+      .services .box-container {
+        margin: 5px 0; } }
+    @media screen and (max-width: 450px) {
+      .services .box-container .box {
+        margin: 5px 0;
+        width: 100%; } }
 
 .service-info {
   background: #dfdfdf; }
@@ -634,7 +677,7 @@ footer {
       max-width: 320px; }
     @media screen and (max-width: 650px) {
       .service-info .wrap-contact-info {
-        padding: 10px 5px; }
+        padding: 10px; }
         .service-info .wrap-contact-info p:first-child {
           max-width: none; } }
 
@@ -660,14 +703,26 @@ footer {
           padding: 0 5px; }
         .products .product-list .list--item:before {
           content: url(../assets/img/colon-sm.png);
-          margin: 0 10px; } }
+          margin: 0 10px 0 0; } }
+  @media screen and (max-width: 767px) {
+    .products {
+      padding: 50px 0; } }
+  @media screen and (max-width: 650px) {
+    .products {
+      padding: 20px 0; }
+      .products .col-wrap {
+        margin-top: 10px; }
+      .products .col .logo {
+        margin: 15px auto; }
+      .products .col .product-list {
+        padding-top: 10px; } }
 
 .logo {
   display: block;
   margin: 40px auto; }
 
 .area {
-  background: url(../assets/img/area.png) no-repeat center;
+  background: url(../assets/img/area.png) no-repeat center 75px;
   background-size: cover;
   padding: 0;
   min-height: 750px; }
@@ -678,16 +733,30 @@ footer {
     .area-info .divider {
       padding-top: 12px;
       margin: 0 30px; }
+  @media screen and (min-width: 1400px) {
+    .area {
+      min-height: 1000px; } }
+  @media screen and (max-width: 650px) {
+    .area h4 {
+      font-size: 22px;
+      padding-top: 5px; }
+    .area .divider {
+      margin: 0 15px; } }
+  @media screen and (max-width: 450px) {
+    .area p {
+      padding: 0 !important;
+      width: 180px; } }
 
 .contact {
   background: url(../assets/img/house.png) no-repeat center;
   background-size: cover;
+  border-top: 5px solid #4c2f2f;
   min-height: 900px; }
   .contact a {
     text-decoration: none; }
   .contact .col-wrap {
     margin-top: 200px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     padding: 30px 15px;
     border-radius: 4px; }
   .contact .col-50:first-of-type {
@@ -695,6 +764,26 @@ footer {
     text-align: right; }
   .contact .col-50:last-of-type {
     padding-left: 50px !important; }
+  @media screen and (max-width: 767px) {
+    .contact {
+      min-height: 600px; }
+      .contact .col-wrap {
+        margin-top: 100px; }
+        .contact .col-wrap .col.col-50 {
+          float: left;
+          width: 50%; } }
+  @media screen and (max-width: 650px) {
+    .contact .col-wrap {
+      margin-top: 50px; }
+      .contact .col-wrap .col.col-50 {
+        float: none;
+        width: 100%; }
+      .contact .col-wrap .col-50:first-of-type {
+        padding-right: 0 !important;
+        text-align: center; }
+      .contact .col-wrap .col-50:last-of-type {
+        padding-left: 0 !important;
+        text-align: center; } }
 
 /*------------------------------------*\
                 ¡FOOTER
@@ -718,5 +807,13 @@ footer {
   padding: 0 100px; }
   .footer .info {
     font-size: 14px; }
+  @media screen and (max-width: 650px) {
+    .footer {
+      padding: 0 20px; } }
+  @media screen and (max-width: 450px) {
+    .footer {
+      padding: 0 20px; }
+      .footer p {
+        width: 240px; } }
 
 /*# sourceMappingURL=main.css.map */
