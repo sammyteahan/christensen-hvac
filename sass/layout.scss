@@ -209,10 +209,10 @@ footer {
 */
 .sub-mast {
   @include flexbox();
-  background: url(../assets/img/bg-mast.png) no-repeat scroll center -100px;
+  background: url(../assets/img/bg-mast.png) no-repeat scroll center bottom;
   background-size: cover;
-  height: calc(100vh - 100px);
-  margin-bottom: 60px;
+  height: calc(100vh - 200px);
+  // margin-bottom: 60px;
   position: relative;
   z-index: 5150;
   &-info {
@@ -232,9 +232,35 @@ footer {
       align-self: center;
     }
   }
+  @media screen and (min-width: 1580px) {
+    background: url(../assets/img/bg-mast.png) no-repeat scroll center bottom;
+    background-size: cover;
+  }
   @media screen and (max-width: breakpoint(tablet)) {
-    height: calc(100vh - 150px);
+    height: calc(100vh - 200px);
     margin-bottom: 0;
+  }
+  @media screen and (max-width: breakpoint(phone-lg)) {
+    height: calc(100vh - 250px);
+    margin-bottom: 0;
+  }
+}
+
+.sub-mast-info {
+  @include flexbox();
+  @include align-self(flex-end);
+  @include justify-content(center);
+  background: color(accent-4);
+  height: config(header);
+  width: 100%;
+  .info {
+    @include align-self(center);
+  }
+  img {
+    margin: 0 20px;
+    height: 10px;
+    width: 10px;
+    align-self: center;
   }
 }
 
