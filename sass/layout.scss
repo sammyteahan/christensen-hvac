@@ -91,8 +91,8 @@ footer {
   }
   &-logo {
     float: left;
-    margin: 20px 15px 0 10px;
-    width: 75px;
+    margin: 12px 15px 0 10px;
+    width: 90px;
   }
   .title {
     color: #ffffff;
@@ -317,6 +317,7 @@ footer {
     font-size: 0;
     .box {
       background: rgba(98, 98, 98, .5);
+      cursor: pointer;
       display: inline-block;
       height: 175px;
       margin: 5px 3px;
@@ -329,7 +330,7 @@ footer {
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 85%;
+        width: 70%;
       }
     }
     .box:hover {
@@ -395,7 +396,7 @@ footer {
     margin: 0 auto;
   }
   .product-list {
-    padding-top: 30px;
+    padding-top: 100px;
     .list--item {
       background: url(../assets/img/divider.png) no-repeat scroll 0 5px;
       background-size: 8px;
@@ -437,7 +438,8 @@ footer {
 
 .logo {
   display: block;
-  margin: 40px auto;
+  margin: 20px auto;
+  width: 100px;
 }
 
 .area {

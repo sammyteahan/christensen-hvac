@@ -443,8 +443,8 @@ footer {
     margin: 0 auto; }
   .header-logo {
     float: left;
-    margin: 20px 15px 0 10px;
-    width: 75px; }
+    margin: 12px 15px 0 10px;
+    width: 90px; }
   .header .title {
     color: #ffffff;
     float: left;
@@ -662,6 +662,7 @@ footer {
     font-size: 0; }
     .services .box-container .box {
       background: rgba(98, 98, 98, 0.5);
+      cursor: pointer;
       display: inline-block;
       height: 175px;
       margin: 5px 3px;
@@ -674,7 +675,7 @@ footer {
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 85%; }
+        width: 70%; }
     .services .box-container .box:hover {
       background: rgba(73, 44, 44, 0.7); }
     @media screen and (max-width: 767px) {
@@ -724,7 +725,7 @@ footer {
     max-width: 800px;
     margin: 0 auto; }
   .products .product-list {
-    padding-top: 30px; }
+    padding-top: 100px; }
     .products .product-list .list--item {
       background: url(../assets/img/divider.png) no-repeat scroll 0 5px;
       background-size: 8px;
@@ -755,7 +756,8 @@ footer {
 
 .logo {
   display: block;
-  margin: 40px auto; }
+  margin: 20px auto;
+  width: 100px; }
 
 .area {
   background: url(../assets/img/area.png) no-repeat center 75px;
