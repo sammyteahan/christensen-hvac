@@ -391,6 +391,10 @@ footer {
 .products {
   border-top: 5px solid color(highlight-4);
   padding: 80px 0 150px;
+  // overriding base style to provide a little more bottom padding
+  .section-title {
+    padding-bottom: 30px;
+  }
   &-squeeze {
     max-width: $product-squeeze;
     margin: 0 auto;
@@ -426,9 +430,6 @@ footer {
       margin-top: 10px;
     }
     .col {
-      .logo {
-        margin: 15px auto;
-      }
       .product-list {
         padding-top: 10px;
       }
@@ -437,9 +438,9 @@ footer {
 }
 
 .logo {
-  display: block;
-  margin: 20px auto;
-  width: 100px;
+  display: inline-block;
+  width: 95px;
+  margin: 0 30px 20px;
 }
 
 .area {
