@@ -64,23 +64,21 @@
   * @desc setup text change on click
   */
   var info = document.querySelector('.main-info');
-  var one = document.querySelector('.box.one');
-  var two = document.querySelector('.box.two');
-  var three = document.querySelector('.box.three');
-  var four = document.querySelector('.box.four');
-  var five = document.querySelector('.box.five');
-  var six = document.querySelector('.box.six');
-  var seven = document.querySelector('.box.seven');
-  var eight = document.querySelector('.box.eight');
 
-  one.addEventListener('click', setAsMain);
-  two.addEventListener('click', setAsMain);
-  three.addEventListener('click', setAsMain);
-  four.addEventListener('click', setAsMain);
-  five.addEventListener('click', setAsMain);
-  six.addEventListener('click', setAsMain);
-  seven.addEventListener('click', setAsMain);
-  eight.addEventListener('click', setAsMain);
+  var nodes = [
+    one = document.querySelector('.box.one'),
+    two = document.querySelector('.box.two'),
+    three = document.querySelector('.box.three'),
+    four = document.querySelector('.box.four'),
+    five = document.querySelector('.box.five'),
+    six = document.querySelector('.box.six'),
+    seven = document.querySelector('.box.seven'),
+    eight = document.querySelector('.box.eight'),
+  ];
+
+  nodes.forEach(function(item) {
+    item.addEventListener('click', setAsMain);
+  });
 
   var content = [
     'We service all brands and equipment',
