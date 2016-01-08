@@ -76,8 +76,12 @@
     eight = document.querySelector('.box.eight'),
   ];
 
-  nodes.forEach(function(item) {
+  nodes.forEach(function (item) {
     item.addEventListener('click', setAsMain);
+  });
+
+  nodes.forEach(function (item) {
+    item.addEventListener('mouseover', setAsMain);
   });
 
   var content = [
