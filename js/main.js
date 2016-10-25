@@ -80,6 +80,10 @@
     item.addEventListener('click', setAsMain);
   });
 
+  nodes.forEach(function(item) {
+    item.addEventListener('mouseover', setAsMain);
+  });
+
   var content = [
     'We service all brands and equipment',
     'From sizing, to efficiency, to brands, - we have the experience to help you navigate your options.',
